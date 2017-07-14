@@ -13,22 +13,33 @@ body, #map {
 <div id="map">
 </div>
 <script type="text/javascript">
+	
+  // Ronald
+  var ason = new L.tileLayer("http://190.41.156.3:7075/tunkiason/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  var agosto = new L.tileLayer("http://190.41.156.3:7075/tunki8/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  var septiembre = new L.tileLayer("http://190.41.156.3:7075/tunki9/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  var octubre = new L.tileLayer("http://190.41.156.3:7075/tunki10/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  var noviembre = new L.tileLayer("http://190.41.156.3:7075/tunki11/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+	
   //create the tile layers
-  var ndvi = new L.tileLayer("http://190.41.156.3:7075/ndvi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
-  var ndwi = new L.tileLayer("http://190.41.156.3:7075/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  //var ndvi = new L.tileLayer("http://190.41.156.3:7075/ndvi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
+  //var ndwi = new L.tileLayer("http://190.41.156.3:7075/ndwi/{z}/{x}/{y}", {maxNativeZoom: 13, maxZoom: 18});
   var base = new L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png");
   //link leaflet map with html
   var map = L.map('map');
   map.setView([-15.708471, -71.278902], 9);
   //create an overlay object
   var overlayMaps = {
-    "NDVI": ndvi,
-    "NDWI": ndwi
+    "Todo": ason, 
+	"Agosto": agosto, 
+	"Septiembre": septiembre,
+	"Octubre": octubre,
+	"Noviembre": noviembre
   };
   //add the layers to the map
   L.control.layers(overlayMaps, {}, {collapsed: false}).addTo(map);
   base.addTo(map);
-  overlayMaps.NDVI.addTo(map);
+  overlayMaps.Todo.addTo(map);
 </script>
 </body>
 </html>
